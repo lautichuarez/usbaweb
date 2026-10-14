@@ -1,29 +1,20 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+const mysql = require('mysql2/promise');
+require('dotenv').config();
 
-dotenv.config();
+// Creamos el pool directamente usando la URL pública de Railway
+const pool = mysql.createPool(process.env.MYSQL_PUBLIC_URL);
 
-const sequelize = new Sequelize(
-    process.env.DB_NAME, // usba
-    process.env.DB_USER, // root
-    process.env.DB_PASS, // password
-    {
-        host: process.env.DB_HOST,
-        dialect: 'mysql',
-        timezone: '-03:00',
-        logging: false, // Poner true si querés ver SQL en consola
-    }
-);
-
-// Test de conexión
-export const connectDB = async () => {
+// Probar la conexión al iniciar
+const testConnection = async () => {
   try {
-    await sequelize.authenticate();
-    console.log('Conexión a MySQL establecida correctamente');
+    const connection = await pool.getConnection();
+    console.log('📦 ¡Base de datos MySQL en Railway conectada con éxito!');
+    connection.release();
   } catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
-    process.exit(1);
+    console.error('❌ Error al conectar a la base de datos:', error.message);
   }
 };
 
-export default sequelize;
+testConnection();
+
+module.exports = pool;

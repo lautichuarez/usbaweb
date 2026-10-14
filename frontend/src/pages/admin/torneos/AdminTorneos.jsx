@@ -5,6 +5,7 @@ import {
   obtenerFechaActual,
   inscripcionesAbiertas,
 } from "../../../utils/fecha.utils";
+import { API_URL, BASE_URL } from '../../../config';
 
 const AdminTorneos = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const AdminTorneos = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://localhost:3000/api/v1/torneos/admin/todos",
+        `${API_URL}/torneos/admin/todos`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -39,7 +40,7 @@ const AdminTorneos = () => {
   const cambiarEstado = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await fetch(`http://localhost:3000/api/v1/torneos/${id}/estado`, {
+      await fetch(`${API_URL}/torneos/${id}/estado`, {
         method: "PATCH",
         headers: { Authorization: `Bearer ${token}` },
       });

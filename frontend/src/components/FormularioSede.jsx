@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_URL, BASE_URL } from '../config';
 
 const FormularioSede = () => {
 
@@ -25,7 +26,7 @@ const FormularioSede = () => {
     const obtenerSede = async () => {
 
         const response = await fetch(
-            `http://localhost:3000/api/v1/sedes/${id}`
+            `${API_URL}/sedes/${id}`
         );
 
         const data = await response.json();
@@ -51,8 +52,8 @@ const FormularioSede = () => {
         await fetch(
 
             editando
-                ? `http://localhost:3000/api/v1/sedes/${id}`
-                : "http://localhost:3000/api/v1/sedes",
+                ? `${API_URL}/sedes/${id}`
+                : `${API_URL}/sedes`,
 
             {
                 method:

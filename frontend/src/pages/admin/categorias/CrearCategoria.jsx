@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_URL, BASE_URL } from '../../../config';
 
 const CrearCategoria = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const CrearCategoria = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://localhost:3000/api/v1/categorias/crear",
+        `${API_URL}/categorias/crear`,
         {
           method: "POST",
           headers: {

@@ -13,7 +13,7 @@ import Partido from "./partido.model.js";
 import Sancion from "./sancion.model.js";
 import Anuncio from "./anuncio.model.js";
 import ImagenCarrusel from "./imagenCarrusel.model.js";
-import Bienvenida from "./bienvenida.model.js";
+import Bienvenida from "./Bienvenida.model.js";
 
 // Relaciones
 

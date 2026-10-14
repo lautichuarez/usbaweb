@@ -1,4 +1,4 @@
-import Bienvenida from '../models/bienvenida.model.js';
+import Bienvenida from '../models/Bienvenida.model.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

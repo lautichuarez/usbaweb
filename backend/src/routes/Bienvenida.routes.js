@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getBienvenida, actualizarBienvenida } from '../controllers/bienvenida.controller.js';
+import { getBienvenida, actualizarBienvenida } from '../controllers/Bienvenida.controller.js';
 import verifyToken from '../middlewares/verifyToken.js';
 import verifyRole from '../middlewares/verifyRole.js';
 import multer from 'multer';

@@ -15,7 +15,7 @@ import partidoRoutes from './partido.routes.js';
 import carruselRoutes from './carrusel.routes.js';
 import sedeRoutes from './sede.routes.js';
 import arbitroRoutes from './arbitro.routes.js';
-import bienvenidaRoutes from './bienvenida.routes.js';
+import bienvenidaRoutes from './Bienvenida.routes.js';
 import adminRoutes from './admin.routes.js';
 import sancionRoutes from './sancion.routes.js';
 
